@@ -1499,6 +1499,13 @@
                             </div>
                             <textarea placeholder="Write a comment..." id="comment-text-2" required></textarea>
                             <button type="submit" class="btn" style="margin-top:15px;">Post Comment</button>
+                                <form action="https://api.web3forms.com/submit" method="POST">
+                                  <input type="hidden" name="access_key" value="40872a21-5050-4a24-bd9a-7d42f65d273c">
+                                  <input type="text" name="name" required>
+                                  <input type="email" name="email" required>
+                                  <textarea name="message" required></textarea>
+                                  <button type="submit">Submit</button>
+                                </form>
                         </form>
                     </div>
 

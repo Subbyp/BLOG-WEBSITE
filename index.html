@@ -1,0 +1,2246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SUBBYBLOG - Premium</title>
+    
+    <!-- Meta Tags for SEO -->
+    <meta name="description" content="SUBBYBLOG - Inspiring people to take the first step even when they are scared or do not feel ready to start.">
+    <meta name="keywords" content="blog, motivation, inspiration, life lessons, personal growth">
+    <meta name="author" content="SubbyBlog">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="SUBBYBLOG - Premium Blog">
+    <meta property="og:description" content="Inspiring people to take the first step even when they are scared or do not feel ready to start.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://subbyblog.com">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=1200&h=630&fit=crop">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="SUBBYBLOG - Premium Blog">
+    <meta name="twitter:description" content="Inspiring people to take the first step even when they are scared or do not feel ready to start.">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Google Fonts: Inter + Playfair Display -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ============================================
+                   CSS VARIABLES FOR EASY THEMING
+                ============================================ */
+        :root {
+            --primary: #6C63FF;
+            --primary-dark: #5a52d6;
+            --secondary: #FF6584;
+            --secondary-dark: #e55a77;
+            --dark-bg: #2D2D3F;
+            --dark-bg-light: #3d3d55;
+            --text-dark: #1A1A2E;
+            --text-light: #f8f9fe;
+            --text-muted: #888;
+            --card-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            --card-shadow-hover: 0 20px 60px rgba(108, 99, 255, 0.15);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --border-radius: 16px;
+            --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+        }
+
+        /* ----- RESET & BASE ----- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--text-light);
+            color: var(--text-dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            color: var(--text-dark);
+            font-weight: 700;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ----- BUTTONS ----- */
+        .btn {
+            display: inline-block;
+            padding: 0.7rem 1.8rem;
+            background: var(--gradient);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(108, 99, 255, 0.3);
+            min-height: 44px;
+            min-width: 44px;
+            text-align: center;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(108, 99, 255, 0.4);
+        }
+
+        .btn:focus-visible {
+            outline: 2px solid var(--primary);
+            outline-offset: 2px;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            box-shadow: none;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 4px 15px rgba(108, 99, 255, 0.3);
+        }
+
+        .btn-load-more {
+            display: block;
+            margin: 20px auto;
+            padding: 0.7rem 2.5rem;
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            min-height: 44px;
+        }
+
+        .btn-load-more:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(108, 99, 255, 0.3);
+        }
+
+        /* ============================================
+                   HEADER
+                ============================================ */
+        header {
+            background: var(--dark-bg);
+            height: 72px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        header * {
+            color: white;
+        }
+
+        header .logo {
+            float: left;
+            height: inherit;
+            margin-left: 2em;
+            display: flex;
+            align-items: center;
+        }
+
+        header .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        header .logo-text span {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        header ul {
+            float: right;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        header ul li {
+            float: left;
+            position: relative;
+        }
+
+        header ul li a {
+            display: block;
+            padding: 22px 18px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        header ul li a:hover,
+        header ul li a.active {
+            background: rgba(108, 99, 255, 0.2);
+            color: var(--primary);
+        }
+
+        header ul li ul {
+            position: absolute;
+            top: 72px;
+            right: 0;
+            width: 200px;
+            background: var(--dark-bg);
+            display: none;
+            z-index: 99999;
+            border-radius: 0 0 12px 12px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        header ul li:hover ul {
+            display: block;
+        }
+
+        header ul li ul li {
+            width: 100%;
+        }
+
+        header ul li ul li a {
+            padding: 12px 20px;
+            background: var(--dark-bg);
+            color: #ccc;
+            font-weight: 400;
+        }
+
+        header ul li ul li a:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        header ul li ul li a.logout {
+            color: var(--secondary);
+        }
+
+        header ul li ul li a.logout:hover {
+            background: var(--secondary);
+            color: white;
+        }
+
+        header .menu-toggle {
+            display: none;
+            position: absolute;
+            right: 20px;
+            top: 18px;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: white;
+            transition: var(--transition);
+            background: none;
+            border: none;
+            min-height: 44px;
+            min-width: 44px;
+        }
+
+        header .menu-toggle:hover {
+            color: var(--primary);
+        }
+
+        /* ============================================
+                   PAGE WRAPPER
+                ============================================ */
+        .page-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ============================================
+                   POST SLIDER
+                ============================================ */
+        .post-slider {
+            position: relative;
+            margin: 40px 0;
+        }
+
+        .post-slider .slider-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin: 30px auto;
+            position: relative;
+        }
+
+        .post-slider .slider-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--gradient);
+            margin: 10px auto 0;
+            border-radius: 4px;
+        }
+
+        .post-slider .prev,
+        .post-slider .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(45, 45, 63, 0.8);
+            color: white;
+            border: none;
+            padding: 12px 18px;
+            cursor: pointer;
+            border-radius: 50%;
+            z-index: 10;
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+            min-height: 44px;
+            min-width: 44px;
+        }
+
+        .post-slider .prev:hover,
+        .post-slider .next:hover {
+            background: var(--gradient);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .post-slider .prev:focus-visible,
+        .post-slider .next:focus-visible {
+            outline: 2px solid var(--primary);
+            outline-offset: 2px;
+        }
+
+        .post-slider .prev {
+            left: -10px;
+        }
+        .post-slider .next {
+            right: -10px;
+        }
+
+        .post-slider .post-wrapper {
+            width: 90%;
+            height: 380px;
+            margin: 0 auto;
+            overflow: hidden;
+            padding: 10px 0;
+        }
+
+        .post-slider .post-wrapper .post {
+            width: 300px;
+            height: 360px;
+            margin: 0 15px;
+            display: inline-block;
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+            overflow: hidden;
+        }
+
+        .post-slider .post-wrapper .post:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--card-shadow-hover);
+        }
+
+        .post-slider .post-wrapper .post .slider-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .post-slider .post-wrapper .post .post-info {
+            height: 160px;
+            padding: 15px 20px;
+        }
+
+        .post-slider .post-wrapper .post .post-info h4 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .post-slider .post-wrapper .post .post-info h4 a:hover {
+            color: var(--primary);
+        }
+
+        .post-slider .post-wrapper .post .post-meta {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .post-slider .post-wrapper .post .post-meta i {
+            margin-right: 4px;
+        }
+
+        /* ============================================
+                   CONTENT (Homepage)
+                ============================================ */
+        .content {
+            width: 95%;
+            margin: 40px auto;
+        }
+
+        .content .main-content {
+            width: 68%;
+            float: left;
+        }
+
+        .content .main-content .recent-post-title {
+            font-size: 2.2rem;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .content .main-content .recent-post-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--gradient);
+            margin-top: 8px;
+            border-radius: 4px;
+        }
+
+        .content .main-content .post {
+            width: 100%;
+            min-height: 220px;
+            margin: 0 0 30px 0;
+            border-radius: var(--border-radius);
+            background: white;
+            position: relative;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            overflow: hidden;
+            transition: var(--transition);
+            display: flex;
+            align-items: stretch;
+        }
+
+        .content .main-content .post:hover {
+            box-shadow: 0 12px 40px rgba(108, 99, 255, 0.12);
+            transform: translateY(-4px);
+        }
+
+        .content .main-content .post .post-image {
+            width: 35%;
+            min-height: 220px;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .content .main-content .post .post-preview {
+            width: 65%;
+            padding: 25px 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .content .main-content .post .post-preview h2 {
+            font-size: 1.4rem;
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+
+        .content .main-content .post .post-preview h2 a:hover {
+            color: var(--primary);
+        }
+
+        .content .main-content .post .post-preview .post-meta {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+        }
+
+        .content .main-content .post .post-preview .post-meta i {
+            margin-right: 4px;
+        }
+
+        .content .main-content .post .post-preview .preview-text {
+            color: #555;
+            font-size: 0.95rem;
+            flex-grow: 1;
+            margin-bottom: 15px;
+        }
+
+        .content .main-content .post .post-preview .read-more {
+            align-self: flex-start;
+            padding: 0.5rem 1.5rem;
+            font-size: 0.85rem;
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            border-radius: 50px;
+            box-shadow: none;
+            font-weight: 600;
+            min-height: 44px;
+        }
+
+        .content .main-content .post .post-preview .read-more:hover {
+            background: var(--gradient);
+            color: white;
+            border-color: transparent;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(108, 99, 255, 0.3);
+        }
+
+        /* Post Counter */
+        .post-counter {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin: 10px 0 20px;
+        }
+
+        /* ============================================
+                   SIDEBAR
+                ============================================ */
+        .content .sidebar {
+            width: 28%;
+            float: right;
+        }
+
+        .sidebar .section {
+            background: white;
+            padding: 25px;
+            border-radius: var(--border-radius);
+            margin-bottom: 25px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+        }
+
+        .sidebar .section-title {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .sidebar .section-title::after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 3px;
+            background: var(--gradient);
+            margin-top: 6px;
+            border-radius: 4px;
+        }
+
+        .sidebar .section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar .section ul li {
+            padding: 8px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .sidebar .section ul li:last-child {
+            border-bottom: none;
+        }
+
+        .sidebar .section ul li a {
+            display: block;
+            padding: 4px 0;
+            transition: var(--transition);
+        }
+
+        .sidebar .section ul li a:hover,
+        .sidebar .section ul li a.active {
+            color: var(--primary);
+            padding-left: 6px;
+        }
+
+        .sidebar .section ul li .post-count {
+            float: right;
+            background: #f0f0f0;
+            padding: 0 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .text-input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 50px;
+            font-family: 'Inter', sans-serif;
+            transition: var(--transition);
+            background: var(--text-light);
+            min-height: 44px;
+        }
+
+        .text-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(108, 99, 255, 0.1);
+        }
+
+        /* Search Results */
+        .search-results {
+            margin-top: 15px;
+        }
+
+        .search-result-item {
+            padding: 10px 0;
+            border-bottom: 1px solid #f0f0f0;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .search-result-item:hover {
+            padding-left: 6px;
+            color: var(--primary);
+        }
+
+        .search-result-item:last-child {
+            border-bottom: none;
+        }
+
+        .no-results {
+            color: var(--text-muted);
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        /* Author Bio */
+        .author-bio {
+            background: white;
+            padding: 25px;
+            border-radius: var(--border-radius);
+            margin: 30px 0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .author-bio .author-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .author-bio .author-info h3 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        .author-bio .author-info p {
+            color: #555;
+            font-size: 0.95rem;
+        }
+
+        /* Social Share Buttons */
+        .share-buttons {
+            display: flex;
+            gap: 10px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .share-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 50px;
+            color: white;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: var(--transition);
+            min-height: 44px;
+        }
+
+        .share-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .share-twitter { background: #1DA1F2; }
+        .share-facebook { background: #4267B2; }
+        .share-linkedin { background: #0077B5; }
+        .share-email { background: #555; }
+
+        /* ============================================
+                   SINGLE POST PAGE
+                ============================================ */
+        .post-title {
+            font-size: 2.8rem;
+            margin: 20px 0 10px;
+            line-height: 1.2;
+        }
+
+        .post-meta {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin: 10px 0 20px;
+        }
+
+        .post-meta i {
+            margin-right: 6px;
+            color: var(--primary);
+        }
+
+        .post-image-full {
+            width: 100%;
+            height: auto;
+            max-height: 450px;
+            object-fit: cover;
+            border-radius: var(--border-radius);
+            margin: 20px 0;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .post-content p {
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+            color: #333;
+            line-height: 1.9;
+        }
+
+        .post-content p:first-of-type {
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: var(--text-dark);
+        }
+
+        /* Comments Section */
+        .comments-section {
+            background: white;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            margin: 30px 0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+        }
+
+        .comments-section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .comment {
+            padding: 15px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .comment:last-child {
+            border-bottom: none;
+        }
+
+        .comment .comment-author {
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .comment .comment-date {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-left: 10px;
+        }
+
+        .comment .comment-text {
+            margin-top: 5px;
+            color: #555;
+        }
+
+        .comment-form textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            font-family: 'Inter', sans-serif;
+            transition: var(--transition);
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .comment-form textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(108, 99, 255, 0.1);
+        }
+
+        .comment-form .form-row {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .comment-form .form-row input {
+            flex: 1;
+            padding: 12px 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 50px;
+            font-family: 'Inter', sans-serif;
+            transition: var(--transition);
+            min-height: 44px;
+        }
+
+        .comment-form .form-row input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(108, 99, 255, 0.1);
+        }
+
+        /* Breadcrumbs */
+        .breadcrumbs {
+            padding: 15px 0;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .breadcrumbs a {
+            color: var(--primary);
+        }
+
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+
+        /* ============================================
+                   LOADING SPINNER
+                ============================================ */
+        .loading-spinner {
+            display: none;
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        .loading-spinner.active {
+            display: block;
+        }
+
+        .spinner {
+            width: 40px;
+            height: 40px;
+            margin: 0 auto;
+            border: 4px solid #f0f0f0;
+            border-top: 4px solid var(--primary);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* ============================================
+                   FOOTER
+                ============================================ */
+        .footer {
+            background: var(--dark-bg);
+            color: #ccc;
+            padding: 50px 0 0;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px 30px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .footer-section {
+            flex: 1;
+            margin: 10px 20px;
+            min-width: 200px;
+        }
+
+        .footer-section h1, .footer-section h2 {
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .footer-section .logo-text {
+            font-size: 1.6rem;
+        }
+
+        .footer-section .logo-text span {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .footer-section p {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: #aaa;
+        }
+
+        .footer-section a {
+            color: #aaa;
+            transition: var(--transition);
+        }
+
+        .footer-section a:hover {
+            color: var(--primary);
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section ul li {
+            padding: 6px 0;
+        }
+
+        .footer-section ul li a:hover {
+            padding-left: 6px;
+        }
+
+        .contact span {
+            display: block;
+            margin: 8px 0;
+            color: #aaa;
+        }
+
+        .contact span i {
+            color: var(--primary);
+            margin-right: 10px;
+        }
+
+        .socials {
+            margin-top: 15px;
+        }
+
+        .socials a {
+            display: inline-block;
+            margin-right: 12px;
+            font-size: 1.3rem;
+            color: #aaa;
+            transition: var(--transition);
+            min-height: 44px;
+            min-width: 44px;
+            text-align: center;
+            line-height: 44px;
+        }
+
+        .socials a:hover {
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom span {
+            color: var(--primary);
+        }
+
+        /* ============================================
+                   CONTACT FORM IN FOOTER
+                ============================================ */
+        .contact-input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #444;
+            border-radius: 50px;
+            font-family: 'Inter', sans-serif;
+            background: rgba(255, 255, 255, 0.05);
+            color: white;
+            transition: var(--transition);
+            margin-bottom: 12px;
+            min-height: 44px;
+        }
+
+        .contact-input::placeholder {
+            color: #888;
+        }
+
+        .contact-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        textarea.contact-input {
+            border-radius: var(--border-radius);
+            min-height: 80px;
+            resize: vertical;
+        }
+
+        .contact-btn {
+            background: var(--gradient);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            width: 100%;
+            min-height: 44px;
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(108, 99, 255, 0.3);
+        }
+
+        .form-success {
+            display: none;
+            color: #4CAF50;
+            text-align: center;
+            padding: 10px;
+            border: 2px solid #4CAF50;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+
+        .form-success.show {
+            display: block;
+        }
+
+        .form-error {
+            display: none;
+            color: #f44336;
+            text-align: center;
+            padding: 10px;
+            border: 2px solid #f44336;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+
+        .form-error.show {
+            display: block;
+        }
+
+        /* ============================================
+                   REDUCED MOTION
+                ============================================ */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+
+            .post-slider .post-wrapper .post:hover,
+            .content .main-content .post:hover,
+            .btn:hover,
+            .share-btn:hover {
+                transform: none !important;
+            }
+        }
+
+        /* ============================================
+                   RESPONSIVE
+                ============================================ */
+        @media only screen and (max-width: 992px) {
+            .content .main-content {
+                width: 100%;
+                float: none;
+            }
+
+            .content .sidebar {
+                width: 100%;
+                float: none;
+                margin-top: 30px;
+            }
+
+            .content .main-content .post {
+                flex-direction: column;
+            }
+
+            .content .main-content .post .post-image {
+                width: 100%;
+                min-height: 200px;
+                height: auto;
+            }
+
+            .content .main-content .post .post-preview {
+                width: 100%;
+                padding: 20px;
+            }
+
+            .post-slider .post-wrapper {
+                width: 100%;
+                height: auto;
+            }
+
+            .post-slider .prev,
+            .post-slider .next {
+                display: none;
+            }
+
+            .footer-content {
+                flex-direction: column;
+            }
+
+            .footer-section {
+                margin: 10px 0;
+            }
+
+            .author-bio {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .comment-form .form-row {
+                flex-direction: column;
+            }
+
+            .share-buttons {
+                justify-content: center;
+            }
+        }
+
+        @media only screen and (max-width: 750px) {
+            header .menu-toggle {
+                display: block;
+            }
+
+            header ul {
+                width: 100%;
+                background: var(--dark-bg);
+                max-height: 0;
+                overflow: hidden;
+                float: none;
+                transition: max-height 0.4s ease;
+                position: absolute;
+                top: 72px;
+                left: 0;
+                z-index: 9999;
+                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            }
+
+            header ul.show {
+                max-height: 400px;
+                overflow-y: auto;
+            }
+
+            header ul li {
+                width: 100%;
+                float: none;
+            }
+
+            header ul li a {
+                padding: 14px 20px;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            }
+
+            header ul li ul {
+                position: static;
+                display: block;
+                width: 100%;
+                box-shadow: none;
+                border-radius: 0;
+            }
+
+            header ul li ul li a {
+                padding: 10px 20px 10px 40px;
+                background: rgba(255, 255, 255, 0.05);
+            }
+
+            header .logo {
+                margin-left: 1em;
+            }
+
+            header .logo-text {
+                font-size: 1.3rem;
+            }
+
+            .post-title {
+                font-size: 2rem;
+            }
+
+            .post-slider .slider-title {
+                font-size: 1.8rem;
+            }
+
+            .post-slider .post-wrapper .post {
+                width: 260px;
+                height: 340px;
+            }
+
+            .post-image-full {
+                max-height: 200px;
+            }
+
+            .content {
+                width: 100%;
+            }
+
+            .btn {
+                padding: 0.5rem 1.2rem;
+                font-size: 0.85rem;
+            }
+
+            .breadcrumbs {
+                font-size: 0.8rem;
+            }
+        }
+
+        @media only screen and (max-width: 480px) {
+            header .logo-text {
+                font-size: 1.1rem;
+            }
+
+            .post-slider .post-wrapper .post {
+                width: 220px;
+                height: 300px;
+            }
+
+            .post-slider .post-wrapper .post .slider-image {
+                height: 150px;
+            }
+
+            .post-slider .post-wrapper .post .post-info {
+                height: 150px;
+                padding: 12px 15px;
+            }
+
+            .content .main-content .post .post-preview h2 {
+                font-size: 1.1rem;
+            }
+
+            .sidebar .section {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header>
+        <div class="logo">
+            <h1 class="logo-text"><span>SUBBY</span>BLOG</h1>
+        </div>
+        <button class="menu-toggle" aria-label="Toggle navigation menu">
+            <i class="fa fa-bars"></i>
+        </button>
+        <ul class="nav" role="navigation" aria-label="Main navigation">
+            <li><a href="#" onclick="showHome()" class="active" id="nav-home">Home</a></li>
+            <li><a href="#about" onclick="showAbout()" id="nav-about">About</a></li>
+            <li><a href="#services" onclick="showServices()" id="nav-services">Services</a></li>
+            <li>
+                <a href="#" aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-user"></i> SUBBY  
+                    <i class="fa fa-chevron-down"></i>
+                </a>
+                <ul>
+                    <li><a href="#">Dashboard</a></li>
+                    <li><a href="#" class="logout" onclick="handleLogout()">Logout</a></li>
+                </ul>
+            </li>
+        </ul>
+    </header>
+
+    <!-- ===== PAGE WRAPPER ===== -->
+    <div class="page-wrapper">
+
+        <!-- ==========================================
+        BREADCRUMBS
+        ========================================== -->
+        <div class="breadcrumbs" id="breadcrumbs">
+            <a href="#" onclick="showHome()">Home</a>
+            <span id="breadcrumb-current"></span>
+        </div>
+
+        <!-- ==========================================
+        HOME PAGE
+        ========================================== -->
+        <div id="home-page">
+
+            <!-- Post Slider -->
+            <div class="post-slider">
+                <h1 class="slider-title">Trending Posts</h1>
+                <button class="prev" aria-label="Previous slide"><i class="fas fa-chevron-left"></i></button>
+                <button class="next" aria-label="Next slide"><i class="fas fa-chevron-right"></i></button>
+
+                <div class="post-wrapper" id="slider-wrapper">
+                    <!-- Posts will be loaded dynamically -->
+                </div>
+            </div>
+
+            <!-- Content -->
+            <div class="content clearfix">
+                <div class="main-content">
+                    <h1 class="recent-post-title">Recent Posts</h1>
+                    <div class="post-counter" id="post-counter">Showing 1-6 of 6 posts</div>
+
+                    <div id="posts-container">
+                        <!-- Posts will be loaded dynamically -->
+                    </div>
+
+                    <button class="btn-load-more" id="load-more-btn" style="display:none;">
+                        Load More Posts
+                    </button>
+                </div>
+
+                <div class="sidebar">
+                    <div class="section search">
+                        <h2 class="section-title">Search</h2>
+                        <form action="#" method="post" id="search-form" onsubmit="return handleSearch(event)">
+                            <input type="text" name="search-term" class="text-input" placeholder="Search articles..." id="search-input" aria-label="Search articles">
+                        </form>
+                        <div class="search-results" id="search-results"></div>
+                    </div>
+                    <div class="section topics">
+                        <h2 class="section-title">Topics</h2>
+                        <ul id="topics-list">
+                            <li><a href="#" onclick="filterByTopic('motivation')" data-topic="motivation">Motivation <span class="post-count">3</span></a></li>
+                            <li><a href="#" onclick="filterByTopic('inspiration')" data-topic="inspiration">Inspiration <span class="post-count">2</span></a></li>
+                            <li><a href="#" onclick="filterByTopic('life-lessons')" data-topic="life-lessons">Life Lessons <span class="post-count">4</span></a></li>
+                            <li><a href="#" onclick="filterByTopic('mindfulness')" data-topic="mindfulness">Mindfulness <span class="post-count">1</span></a></li>
+                            <li><a href="#" onclick="filterByTopic('success')" data-topic="success">Success <span class="post-count">2</span></a></li>
+                            <li><a href="#" onclick="filterByTopic('growth')" data-topic="growth">Growth <span class="post-count">3</span></a></li>
+                            <li><a href="#" onclick="filterByTopic('habits')" data-topic="habits">Habits <span class="post-count">2</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==========================================
+        ABOUT PAGE
+        ========================================== -->
+        <div id="about-page" class="hide">
+            <div class="content clearfix">
+                <div class="main-content" style="width:100%; float:none;">
+                    <h1 class="post-title">About SUBBYBLOG</h1>
+                    <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=1200&h=400&fit=crop" alt="About SUBBYBLOG" class="post-image-full">
+                    <div class="post-content">
+                        <p>Welcome to SUBBYBLOG, a space dedicated to inspiring people to take the first step even when they are scared or do not feel ready to start.</p>
+                        <p>Founded in 2026, SUBBYBLOG is built on the belief that every great journey begins with a single step. We share stories, insights, and practical advice to help you overcome fear, build momentum, and create a life you love.</p>
+                        <p>Our content covers a wide range of topics including motivation, personal growth, mindfulness, success habits, and life lessons. We believe in the power of small daily improvements and the courage to start before you feel ready.</p>
+                        <p>Whether you're looking for inspiration to start a new project, overcome a challenge, or simply find more meaning in your daily life, SUBBYBLOG is here for you.</p>
+                        <p>Thank you for being part of this journey. Let's take that first step together.</p>
+                    </div>
+                    <a href="#" onclick="showHome()" class="btn">&larr; Back to Home</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==========================================
+        SERVICES PAGE
+        ========================================== -->
+        <div id="services-page" class="hide">
+            <div class="content clearfix">
+                <div class="main-content" style="width:100%; float:none;">
+                    <h1 class="post-title">Our Services</h1>
+                    <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=1200&h=400&fit=crop" alt="Our Services" class="post-image-full">
+                    <div class="post-content">
+                        <p>At SUBBYBLOG, we offer a range of services designed to help you grow, learn, and thrive.</p>
+                        <h3>📝 Content Creation</h3>
+                        <p>Professional blog writing, copywriting, and content strategy services to help you share your message with the world.</p>
+                        <h3>🎯 Coaching & Mentoring</h3>
+                        <p>One-on-one coaching sessions to help you overcome fear, set goals, and take consistent action toward your dreams.</p>
+                        <h3>📚 Workshops & Courses</h3>
+                        <p>Interactive workshops and online courses on topics like personal development, habit formation, and mindful living.</p>
+                        <h3>💬 Community Support</h3>
+                        <p>Join our community of like-minded individuals who are committed to growth and taking action.</p>
+                        <p><strong>Ready to work with us?</strong> Reach out through our contact form below and let's start a conversation.</p>
+                    </div>
+                    <a href="#" onclick="showHome()" class="btn">&larr; Back to Home</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==========================================
+        SINGLE POSTS (hidden by default)
+        ========================================== -->
+
+        <!-- Post 1 -->
+        <div id="post-1" class="hide">
+            <div class="content clearfix">
+                <div class="main-content" style="width:100%; float:none;">
+                    <h1 class="post-title">You Cannot Cross the Finish Line Without Taking a Single Step</h1>
+                    <div class="post-meta">
+                        <i class="far fa-user"></i> SubbyBlog &nbsp;
+                        <i class="far fa-calendar"></i> May 11, 2026 &nbsp;
+                        <i class="far fa-clock"></i> 4 min read &nbsp;
+                        <i class="fas fa-tag"></i> <a href="#" onclick="filterByTopic('motivation')">Motivation</a>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=1200&h=500&fit=crop" alt="Post image" class="post-image-full" loading="lazy">
+                    <div class="post-content">
+                        <p>You can't reach the finish line from the couch. Every journey begins with a single action, no matter how small.</p>
+                        <p>Whether it's writing a blog post, learning a new skill, or starting a project, the hardest part is often just beginning. Don't wait for the perfect moment – start where you are, with what you have.</p>
+                        <p>Progress comes from consistent effort, not from waiting for inspiration. The finish line is just a series of steps away.</p>
+                        <p>The people who achieve great things aren't necessarily the most talented. They're the ones who show up every day, even when they don't feel ready, and take one more step forward.</p>
+                        <p>So if you're reading this and you've been waiting for a sign to start something new – this is it. Take that first step today. The finish line is waiting for you.</p>
+                    </div>
+
+                    <!-- Author Bio -->
+                    <div class="author-bio">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop" alt="Author" class="author-avatar" loading="lazy">
+                        <div class="author-info">
+                            <h3>SubbyBlog</h3>
+                            <p>Writer, coach, and lifelong learner. Passionate about helping others take the first step toward their dreams.</p>
+                        </div>
+                    </div>
+
+                    <!-- Share Buttons -->
+                    <div class="share-buttons">
+                        <button class="share-btn share-twitter" onclick="sharePost('twitter')">
+                            <i class="fab fa-twitter"></i> Share
+                        </button>
+                        <button class="share-btn share-facebook" onclick="sharePost('facebook')">
+                            <i class="fab fa-facebook"></i> Share
+                        </button>
+                        <button class="share-btn share-linkedin" onclick="sharePost('linkedin')">
+                            <i class="fab fa-linkedin"></i> Share
+                        </button>
+                        <button class="share-btn share-email" onclick="sharePost('email')">
+                            <i class="fas fa-envelope"></i> Email
+                        </button>
+                    </div>
+
+                    <!-- Comments -->
+                    <div class="comments-section" id="comments-1">
+                        <h3>Comments <span id="comment-count-1">(0)</span></h3>
+                        <div id="comments-list-1">
+                            <!-- Comments will be loaded dynamically -->
+                        </div>
+                        <form class="comment-form" onsubmit="return handleComment(event, 1)">
+                            <div class="form-row">
+                                <input type="text" placeholder="Your name" id="comment-name-1" required>
+                                <input type="email" placeholder="Your email" id="comment-email-1" required>
+                            </div>
+                            <textarea placeholder="Write a comment..." id="comment-text-1" required></textarea>
+                            <button type="submit" class="btn" style="margin-top:15px;">Post Comment</button>
+                        </form>
+                    </div>
+
+                    <a href="#" onclick="showHome()" class="btn">&larr; Back to Home</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Post 2 -->
+        <div id="post-2" class="hide">
+            <div class="content clearfix">
+                <div class="main-content" style="width:100%; float:none;">
+                    <h1 class="post-title">Small Daily Improvements Add Up to Big Results</h1>
+                    <div class="post-meta">
+                        <i class="far fa-user"></i> SubbyBlog &nbsp;
+                        <i class="far fa-calendar"></i> May 9, 2026 &nbsp;
+                        <i class="far fa-clock"></i> 3 min read &nbsp;
+                        <i class="fas fa-tag"></i> <a href="#" onclick="filterByTopic('habits')">Habits</a>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1200&h=500&fit=crop" alt="Post image" class="post-image-full" loading="lazy">
+                    <div class="post-content">
+                        <p>Progress is never a straight line. There will be good days and bad days, but what matters is that you keep moving forward.</p>
+                        <p>The concept of "atomic habits" – making tiny, 1% improvements every day – is powerful because it's sustainable. You don't need to make massive changes overnight. You just need to be consistent.</p>
+                        <p>Over time, those small improvements compound. A year from now, you'll look back and realize how far you've come – not because of one big leap, but because of thousands of small steps.</p>
+                        <p>Whether it's reading 10 pages a day, writing 100 words, or learning one new concept – commit to the small daily habit. The results will follow.</p>
+                        <p>Remember: the journey of a thousand miles begins with a single step. But the journey continues with the next step, and the one after that.</p>
+                    </div>
+
+                    <div class="author-bio">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop" alt="Author" class="author-avatar" loading="lazy">
+                        <div class="author-info">
+                            <h3>SubbyBlog</h3>
+                            <p>Writer, coach, and lifelong learner. Passionate about helping others take the first step toward their dreams.</p>
+                        </div>
+                    </div>
+
+                    <div class="share-buttons">
+                        <button class="share-btn share-twitter" onclick="sharePost('twitter')"><i class="fab fa-twitter"></i> Share</button>
+                        <button class="share-btn share-facebook" onclick="sharePost('facebook')"><i class="fab fa-facebook"></i> Share</button>
+                        <button class="share-btn share-linkedin" onclick="sharePost('linkedin')"><i class="fab fa-linkedin"></i> Share</button>
+                        <button class="share-btn share-email" onclick="sharePost('email')"><i class="fas fa-envelope"></i> Email</button>
+                    </div>
+
+                    <div class="comments-section" id="comments-2">
+                        <h3>Comments <span id="comment-count-2">(0)</span></h3>
+                        <div id="comments-list-2"></div>
+                        <form class="comment-form" onsubmit="return handleComment(event, 2)">
+                            <div class="form-row">
+                                <input type="text" placeholder="Your name" id="comment-name-2" required>
+                                <input type="email" placeholder="Your email" id="comment-email-2" required>
+                            </div>
+                            <textarea placeholder="Write a comment..." id="comment-text-2" required></textarea>
+                            <button type="submit" class="btn" style="margin-top:15px;">Post Comment</button>
+                        </form>
+                    </div>
+
+                    <a href="#" onclick="showHome()" class="btn">&larr; Back to Home</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Post 3 -->
+        <div id="post-3" class="hide">
+            <div class="content clearfix">
+                <div class="main-content" style="width:100%; float:none;">
+                    <h1 class="post-title">You Cannot Start a Path Unless You Work Towards It</h1>
+                    <div class="post-meta">
+                        <i class="far fa-user"></i> SubbyBlog &nbsp;
+                        <i class="far fa-calendar"></i> May 11, 2026 &nbsp;
+                        <i class="far fa-clock"></i> 4 min read &nbsp;
+                        <i class="fas fa-tag"></i> <a href="#" onclick="filterByTopic('life-lessons')">Life Lessons</a>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1488229297570-58520851e868?w=1200&h=500&fit=crop" alt="Post image" class="post-image-full" loading="lazy">
+                    <div class="post-content">
+                        <p>Take the first step even when you are scared or do not feel ready to start. The path doesn't become clear until you begin walking it.</p>
+                        <p>Many people wait for the "right time" or the "perfect plan" before they start. But the truth is, the right time will never come. The perfect plan will never exist. You have to start with what you have, where you are.</p>
+                        <p>Once you take that first step, the next step becomes visible. And then the next. Before you know it, you've walked a mile, and the path ahead is clearer than it was when you started.</p>
+                        <p>Don't let fear of the unknown stop you from beginning. The unknown is where growth happens. The unknown is where your potential lives.</p>
+                        <p>So take that first step today – even if it's small, even if it's imperfect. The path will reveal itself as you walk it.</p>
+                    </div>
+
+                    <div class="author-bio">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop" alt="Author" class="author-avatar" loading="lazy">
+                        <div class="author-info">
+                            <h3>SubbyBlog</h3>
+                            <p>Writer, coach, and lifelong learner. Passionate about helping others take the first step toward their dreams.</p>
+                        </div>
+                    </div>
+
+                    <div class="share-buttons">
+                        <button class="share-btn share-twitter" onclick="sharePost('twitter')"><i class="fab fa-twitter"></i> Share</button>
+                        <button class="share-btn share-facebook" onclick="sharePost('facebook')"><i class="fab fa-facebook"></i> Share</button>
+                        <button class="share-btn share-linkedin" onclick="sharePost('linkedin')"><i class="fab fa-linkedin"></i> Share</button>
+                        <button class="share-btn share-email" onclick="sharePost('email')"><i class="fas fa-envelope"></i> Email</button>
+                    </div>
+
+                    <div class="comments-section" id="comments-3">
+                        <h3>Comments <span id="comment-count-3">(0)</span></h3>
+                        <div id="comments-list-3"></div>
+                        <form class="comment-form" onsubmit="return handleComment(event, 3)">
+                            <div class="form-row">
+                                <input type="text" placeholder="Your name" id="comment-name-3" required>
+                                <input type="email" placeholder="Your email" id="comment-email-3" required>
+                            </div>
+                            <textarea placeholder="Write a comment..." id="comment-text-3" required></textarea>
+                            <button type="submit" class="btn" style="margin-top:15px;">Post Comment</button>
+                        </form>
+                    </div>
+
+                    <a href="#" onclick="showHome()" class="btn">&larr; Back to Home</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Post 4 -->
+        <div id="post-4" class="hide">
+            <div class="content clearfix">
+                <div class="main-content" style="width:100%; float:none;">
+                    <h1 class="post-title">The Power of Silence in a Noisy World</h1>
+                    <div class="post-meta">
+                        <i class="far fa-user"></i> SubbyBlog &nbsp;
+                        <i class="far fa-calendar"></i> May 8, 2026 &nbsp;
+                        <i class="far fa-clock"></i> 3 min read &nbsp;
+                        <i class="fas fa-tag"></i> <a href="#" onclick="filterByTopic('mindfulness')">Mindfulness</a>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=1200&h=500&fit=crop" alt="Post image" class="post-image-full" loading="lazy">
+                    <div class="post-content">
+                        <p>In a world filled with constant noise, notifications, and distractions, silence has become a rare and precious gift.</p>
+                        <p>Silence is not just the absence of sound – it's the presence of clarity. It's in the quiet moments that we hear our own thoughts, feel our own emotions, and connect with our true selves.</p>
+                        <p>Studies show that spending time in silence reduces stress, improves focus, and increases creativity. It gives your brain the space it needs to process, reflect, and recharge.</p>
+                        <p>Try incorporating 10 minutes of silence into your daily routine. No phone, no music, no distractions. Just you and your thoughts. You'll be surprised at the clarity it brings.</p>
+                        <p>The most powerful insights often come not from the noise, but from the silence.</p>
+                    </div>
+
+                    <div class="author-bio">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop" alt="Author" class="author-avatar" loading="lazy">
+                        <div class="author-info">
+                            <h3>SubbyBlog</h3>
+                            <p>Writer, coach, and lifelong learner. Passionate about helping others take the first step toward their dreams.</p>
+                        </div>
+                    </div>
+
+                    <div class="share-buttons">
+                        <button class="share-btn share-twitter" onclick="sharePost('twitter')"><i class="fab fa-twitter"></i> Share</button>
+                        <button class="share-btn share-facebook" onclick="sharePost('facebook')"><i class="fab fa-facebook"></i> Share</button>
+                        <button class="share-btn share-linkedin" onclick="sharePost('linkedin')"><i class="fab fa-linkedin"></i> Share</button>
+                        <button class="share-btn share-email" onclick="sharePost('email')"><i class="fas fa-envelope"></i> Email</button>
+                    </div>
+
+                    <div class="comments-section" id="comments-4">
+                        <h3>Comments <span id="comment-count-4">(0)</span></h3>
+                        <div id="comments-list-4"></div>
+                        <form class="comment-form" onsubmit="return handleComment(event, 4)">
+                            <div class="form-row">
+                                <input type="text" placeholder="Your name" id="comment-name-4" required>
+                                <input type="email" placeholder="Your email" id="comment-email-4" required>
+                            </div>
+                            <textarea placeholder="Write a comment..." id="comment-text-4" required></textarea>
+                            <button type="submit" class="btn" style="margin-top:15px;">Post Comment</button>
+                        </form>
+                    </div>
+
+                    <a href="#" onclick="showHome()" class="btn">&larr; Back to Home</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Post 5 -->
+        <div id="post-5" class="hide">
+            <div class="content clearfix">
+                <div class="main-content" style="width:100%; float:none;">
+                    <h1 class="post-title">Fear is Temporary, Regret is Forever</h1>
+                    <div class="post-meta">
+                        <i class="far fa-user"></i> SubbyBlog &nbsp;
+                        <i class="far fa-calendar"></i> May 7, 2026 &nbsp;
+                        <i class="far fa-clock"></i> 3 min read &nbsp;
+                        <i class="fas fa-tag"></i> <a href="#" onclick="filterByTopic('success')">Success</a>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=1200&h=500&fit=crop" alt="Post image" class="post-image-full" loading="lazy">
+                    <div class="post-content">
+                        <p>Fear is one of the most powerful emotions we experience. It stops us from taking risks, from speaking up, from chasing our dreams. But here's the truth: fear is temporary.</p>
+                        <p>Regret, on the other hand, is permanent. The pain of not trying, of not showing up, of letting opportunities slip away – that stays with you. It's the ghost that haunts you at 2 AM when you wonder "what if?"</p>
+                        <p>When you're afraid, ask yourself: "Will this fear matter in 5 years?" If the answer is no, then do it anyway. The discomfort is temporary. The regret of not doing it could last a lifetime.</p>
+                        <p>Choose the temporary fear over the permanent regret. Choose the courage to try, even if you fail. Because the greatest regret in life is not taking the chance.</p>
+                        <p>So take the risk. Speak up. Start the business. Write the book. Tell them you love them. Fear is temporary. Regret is forever.</p>
+                    </div>
+
+                    <div class="author-bio">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop" alt="Author" class="author-avatar" loading="lazy">
+                        <div class="author-info">
+                            <h3>SubbyBlog</h3>
+                            <p>Writer, coach, and lifelong learner. Passionate about helping others take the first step toward their dreams.</p>
+                        </div>
+                    </div>
+
+                    <div class="share-buttons">
+                        <button class="share-btn share-twitter" onclick="sharePost('twitter')"><i class="fab fa-twitter"></i> Share</button>
+                        <button class="share-btn share-facebook" onclick="sharePost('facebook')"><i class="fab fa-facebook"></i> Share</button>
+                        <button class="share-btn share-linkedin" onclick="sharePost('linkedin')"><i class="fab fa-linkedin"></i> Share</button>
+                        <button class="share-btn share-email" onclick="sharePost('email')"><i class="fas fa-envelope"></i> Email</button>
+                    </div>
+
+                    <div class="comments-section" id="comments-5">
+                        <h3>Comments <span id="comment-count-5">(0)</span></h3>
+                        <div id="comments-list-5"></div>
+                        <form class="comment-form" onsubmit="return handleComment(event, 5)">
+                            <div class="form-row">
+                                <input type="text" placeholder="Your name" id="comment-name-5" required>
+                                <input type="email" placeholder="Your email" id="comment-email-5" required>
+                            </div>
+                            <textarea placeholder="Write a comment..." id="comment-text-5" required></textarea>
+                            <button type="submit" class="btn" style="margin-top:15px;">Post Comment</button>
+                        </form>
+                    </div>
+
+                    <a href="#" onclick="showHome()" class="btn">&larr; Back to Home</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Post 6 -->
+        <div id="post-6" class="hide">
+            <div class="content clearfix">
+                <div class="main-content" style="width:100%; float:none;">
+                    <h1 class="post-title">Create the Life You Can't Wait to Wake Up To</h1>
+                    <div class="post-meta">
+                        <i class="far fa-user"></i> SubbyBlog &nbsp;
+                        <i class="far fa-calendar"></i> May 6, 2026 &nbsp;
+                        <i class="far fa-clock"></i> 4 min read &nbsp;
+                        <i class="fas fa-tag"></i> <a href="#" onclick="filterByTopic('inspiration')">Inspiration</a>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1200&h=500&fit=crop" alt="Post image" class="post-image-full" loading="lazy">
+                    <div class="post-content">
+                        <p>Imagine waking up every morning with excitement – not because you have to, but because you genuinely can't wait to start your day. That's not a fantasy. That's a life you can design.</p>
+                        <p>Creating a life you love starts with knowing what you truly want. Not what others expect of you. Not what society tells you to want. But what sets your soul on fire.</p>
+                        <p>It's about aligning your daily actions with your deepest values. It's about saying no to things that drain you and yes to things that energize you. It's about being intentional with your time, your energy, and your attention.</p>
+                        <p>You don't have to have it all figured out right now. You just have to take the first step toward something that matters to you. The path will unfold as you walk it.</p>
+                        <p>Stop waiting for permission. Stop waiting for the perfect moment. Start creating the life you can't wait to wake up to – today.</p>
+                    </div>
+
+                    <div class="author-bio">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop" alt="Author" class="author-avatar" loading="lazy">
+                        <div class="author-info">
+                            <h3>SubbyBlog</h3>
+                            <p>Writer, coach, and lifelong learner. Passionate about helping others take the first step toward their dreams.</p>
+                        </div>
+                    </div>
+
+                    <div class="share-buttons">
+                        <button class="share-btn share-twitter" onclick="sharePost('twitter')"><i class="fab fa-twitter"></i> Share</button>
+                        <button class="share-btn share-facebook" onclick="sharePost('facebook')"><i class="fab fa-facebook"></i> Share</button>
+                        <button class="share-btn share-linkedin" onclick="sharePost('linkedin')"><i class="fab fa-linkedin"></i> Share</button>
+                        <button class="share-btn share-email" onclick="sharePost('email')"><i class="fas fa-envelope"></i> Email</button>
+                    </div>
+
+                    <div class="comments-section" id="comments-6">
+                        <h3>Comments <span id="comment-count-6">(0)</span></h3>
+                        <div id="comments-list-6"></div>
+                        <form class="comment-form" onsubmit="return handleComment(event, 6)">
+                            <div class="form-row">
+                                <input type="text" placeholder="Your name" id="comment-name-6" required>
+                                <input type="email" placeholder="Your email" id="comment-email-6" required>
+                            </div>
+                            <textarea placeholder="Write a comment..." id="comment-text-6" required></textarea>
+                            <button type="submit" class="btn" style="margin-top:15px;">Post Comment</button>
+                        </form>
+                    </div>
+
+                    <a href="#" onclick="showHome()" class="btn">&larr; Back to Home</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- /page-wrapper -->
+
+    <!-- ===== FOOTER ===== -->
+    <div class="footer">
+        <div class="footer-content">
+            <div class="footer-section about">
+                <h1 class="logo-text"><span>SUBBY</span>BLOG</h1>
+                <p>SubbyBlog inspires people to take the first step even when they are scared or do not feel ready to start. Because every great journey begins with a single step.</p>
+                <div class="contact">
+                    <span><i class="fas fa-phone"></i> +2348147799056</span>
+                    <span><i class="fas fa-envelope"></i> oloweolasubomi1@gmail.com</span>
+                </div>
+                <div class="socials">
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-section links">
+                <h2>Quick Links</h2>
+                <ul>
+                    <li><a href="#" onclick="showHome()">Home</a></li>
+                    <li><a href="#" onclick="showAbout()">About Us</a></li>
+                    <li><a href="#" onclick="showServices()">Services</a></li>
+                    <li><a href="#">Events</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section contact-form">
+                <h2>Stay Connected</h2>
+                <form action="#" method="post" id="footer-form" onsubmit="return handleFooterForm(event)">
+                    <div>
+                        <input type="email" name="email" class="contact-input" placeholder="Your email address..." id="footer-email" required>
+                    </div>
+                    <div>
+                        <textarea rows="3" name="message" class="contact-input" placeholder="Your message..." id="footer-message" required></textarea>
+                    </div>
+                    <div>
+                        <button type="submit" class="contact-btn">
+                            <i class="fas fa-envelope"></i> Send Message
+                        </button>
+                    </div>
+                    <div class="form-success" id="footer-success">
+                        <i class="fas fa-check-circle"></i> Message sent successfully!
+                    </div>
+                    <div class="form-error" id="footer-error">
+                        <i class="fas fa-exclamation-circle"></i> Please fill in all fields.
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 <span>SUBBYBLOG</span> | Designed with <i class="fas fa-heart" style="color:#FF6584;"></i> by Subby
+        </div>
+    </div>
+
+    <!-- ===== LOADING SPINNER ===== -->
+    <div class="loading-spinner" id="loading-spinner">
+        <div class="spinner"></div>
+        <p style="margin-top:10px; color: var(--text-muted);">Loading...</p>
+    </div>
+
+    <!-- ===== SCRIPTS ===== -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script>
+        // ============================================
+        // DATA
+        // ============================================
+        const postsData = [{
+            id: 1,
+            title: "You Cannot Cross the Finish Line Without Taking a Single Step",
+            slug: "finish-line-first-step",
+            excerpt: "You can't reach the finish line from the couch. Take the first step today.",
+            date: "May 11, 2026",
+            readTime: "4 min read",
+            topic: "motivation",
+            image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=400&h=300&fit=crop",
+            sliderImage: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=400&h=250&fit=crop"
+        }, {
+            id: 2,
+            title: "Small Daily Improvements Add Up to Big Results",
+            slug: "daily-improvements-big-results",
+            excerpt: "Progress is never a straight line. Keep moving forward.",
+            date: "May 9, 2026",
+            readTime: "3 min read",
+            topic: "habits",
+            image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop",
+            sliderImage: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=250&fit=crop"
+        }, {
+            id: 3,
+            title: "You Cannot Start a Path Unless You Work Towards It",
+            slug: "start-path-work-towards",
+            excerpt: "Take the first step even when you are scared or do not feel ready.",
+            date: "May 11, 2026",
+            readTime: "4 min read",
+            topic: "life-lessons",
+            image: "https://images.unsplash.com/photo-1488229297570-58520851e868?w=400&h=300&fit=crop",
+            sliderImage: "https://images.unsplash.com/photo-1488229297570-58520851e868?w=400&h=250&fit=crop"
+        }, {
+            id: 4,
+            title: "The Power of Silence in a Noisy World",
+            slug: "power-of-silence",
+            excerpt: "Find clarity and peace by embracing stillness.",
+            date: "May 8, 2026",
+            readTime: "3 min read",
+            topic: "mindfulness",
+            image: "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=400&h=300&fit=crop",
+            sliderImage: "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=400&h=250&fit=crop"
+        }, {
+            id: 5,
+            title: "Fear is Temporary, Regret is Forever",
+            slug: "fear-temporary-regret-forever",
+            excerpt: "Don't let fear stop you from living the life you deserve.",
+            date: "May 7, 2026",
+            readTime: "3 min read",
+            topic: "success",
+            image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=400&h=300&fit=crop",
+            sliderImage: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=400&h=250&fit=crop"
+        }, {
+            id: 6,
+            title: "Create the Life You Can't Wait to Wake Up To",
+            slug: "create-life-you-love",
+            excerpt: "Design a life that excites you every single morning.",
+            date: "May 6, 2026",
+            readTime: "4 min read",
+            topic: "inspiration",
+            image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=400&h=300&fit=crop",
+            sliderImage: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=400&h=250&fit=crop"
+        }];
+
+        let currentFilter = 'all';
+        let currentPage = 1;
+        const postsPerPage = 3;
+        let allPosts = [...postsData];
+        let commentCounts = {};
+
+        // ============================================
+        // RENDER FUNCTIONS
+        // ============================================
+        function renderSlider() {
+            const wrapper = document.getElementById('slider-wrapper');
+            if (!wrapper) return;
+
+            const slides = postsData.map(post => `
+                        <div class="post">
+                            <img src="${post.sliderImage}" alt="${post.title}" class="slider-image" loading="lazy">
+                            <div class="post-info">
+                                <h4><a href="#" onclick="showPost(${post.id})">${post.title}</a></h4>
+                                <div class="post-meta">
+                                    <i class="far fa-user"></i> SubbyBlog
+                                    <i class="far fa-calendar"></i> ${post.date}
+                                </div>
+                            </div>
+                        </div>
+                    `).join('');
+
+            wrapper.innerHTML = slides;
+
+            // Reinitialize slick slider
+            if (typeof $ !== 'undefined' && $.fn.slick) {
+                $('.post-wrapper').slick('unslick');
+                $('.post-wrapper').slick({
+                    slidesToShow: 3,
+                    slidesToScroll: 1,
+                    autoplay: true,
+                    autoplaySpeed: 3000,
+                    dots: false,
+                    infinite: true,
+                    responsive: [{
+                        breakpoint: 1024,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 1
+                        }
+                    }, {
+                        breakpoint: 600,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                        }
+                    }]
+                });
+            }
+        }
+
+        function renderPosts(posts, page = 1) {
+            const container = document.getElementById('posts-container');
+            if (!container) return;
+
+            const start = (page - 1) * postsPerPage;
+            const end = start + postsPerPage;
+            const pagePosts = posts.slice(start, end);
+
+            if (pagePosts.length === 0 && page === 1) {
+                container.innerHTML = '<p style="text-align:center; padding:40px; color: #888;">No posts found.</p>';
+                document.getElementById('load-more-btn').style.display = 'none';
+                return;
+            }
+
+            const html = pagePosts.map(post => `
+                        <div class="post" data-post-id="${post.id}">
+                            <img src="${post.image}" alt="${post.title}" class="post-image" loading="lazy">
+                            <div class="post-preview">
+                                <h2><a href="#" onclick="showPost(${post.id})">${post.title}</a></h2>
+                                <div class="post-meta">
+                                    <i class="far fa-user"></i> SubbyBlog
+                                    <i class="far fa-calendar"></i> ${post.date}
+                                    <i class="far fa-clock"></i> ${post.readTime}
+                                    <i class="fas fa-tag"></i> ${post.topic}
+                                </div>
+                                <p class="preview-text">${post.excerpt}</p>
+                                <a href="#" onclick="showPost(${post.id})" class="btn read-more">Read More</a>
+                            </div>
+                        </div>
+                    `).join('');
+
+            container.innerHTML = html;
+
+            // Update load more button
+            const loadMoreBtn = document.getElementById('load-more-btn');
+            if (end < posts.length) {
+                loadMoreBtn.style.display = 'block';
+                loadMoreBtn.textContent = `Load More Posts (${posts.length - end} remaining)`;
+                loadMoreBtn.dataset.page = page + 1;
+            } else {
+                loadMoreBtn.style.display = 'none';
+            }
+
+            // Update post counter
+            const counter = document.getElementById('post-counter');
+            if (counter) {
+                const showing = Math.min(end, posts.length);
+                counter.textContent = `Showing ${start + 1}-${showing} of ${posts.length} posts`;
+            }
+        }
+
+        function filterByTopic(topic) {
+            currentFilter = topic;
+            currentPage = 1;
+
+            const filtered = topic === 'all' ? allPosts : allPosts.filter(p => p.topic === topic);
+
+            // Update active state in topics list
+            document.querySelectorAll('#topics-list a').forEach(link => {
+                link.classList.toggle('active', link.dataset.topic === topic);
+            });
+
+            renderPosts(filtered, currentPage);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            return false;
+        }
+
+        // ============================================
+        // SEARCH FUNCTIONALITY
+        // ============================================
+        function handleSearch(event) {
+            event.preventDefault();
+            const query = document.getElementById('search-input').value.toLowerCase().trim();
+            const resultsContainer = document.getElementById('search-results');
+
+            if (!query) {
+                resultsContainer.innerHTML = '';
+                return;
+            }
+
+            const results = allPosts.filter(post =>
+                post.title.toLowerCase().includes(query) ||
+                post.excerpt.toLowerCase().includes(query) ||
+                post.topic.toLowerCase().includes(query)
+            );
+
+            if (results.length === 0) {
+                resultsContainer.innerHTML = '<div class="no-results">No posts found matching your search.</div>';
+            } else {
+                resultsContainer.innerHTML = results.map(post => `
+                            <div class="search-result-item" onclick="showPost(${post.id})">
+                                <strong>${post.title}</strong>
+                                <div style="font-size:0.85rem; color:#888;">${post.excerpt}</div>
+                            </div>
+                        `).join('');
+            }
+
+            return false;
+        }
+
+        // ============================================
+        // COMMENT SYSTEM
+        // ============================================
+        function handleComment(event, postId) {
+            event.preventDefault();
+            const name = document.getElementById(`comment-name-${postId}`).value.trim();
+            const email = document.getElementById(`comment-email-${postId}`).value.trim();
+            const text = document.getElementById(`comment-text-${postId}`).value.trim();
+
+            if (!name || !email || !text) {
+                alert('Please fill in all fields.');
+                return false;
+            }
+
+            // Add comment
+            if (!commentCounts[postId]) commentCounts[postId] = [];
+            commentCounts[postId].push({ name, text, date: new Date().toLocaleDateString() });
+
+            renderComments(postId);
+            document.getElementById(`comment-text-${postId}`).value = '';
+
+            // Update count
+            document.getElementById(`comment-count-${postId}`).textContent = `(${commentCounts[postId].length})`;
+
+            return false;
+        }
+
+        function renderComments(postId) {
+            const container = document.getElementById(`comments-list-${postId}`);
+            if (!container) return;
+
+            const comments = commentCounts[postId] || [];
+            if (comments.length === 0) {
+                container.innerHTML = '<p style="color: #888; padding: 10px 0;">No comments yet. Be the first to share your thoughts!</p>';
+                return;
+            }
+
+            container.innerHTML = comments.map(comment => `
+                        <div class="comment">
+                            <div class="comment-author">${comment.name}</div>
+                            <div class="comment-date">${comment.date}</div>
+                            <div class="comment-text">${comment.text}</div>
+                        </div>
+                    `).join('');
+        }
+
+        // ============================================
+        // SHARE FUNCTIONALITY
+        // ============================================
+        function sharePost(platform) {
+            const url = encodeURIComponent(window.location.href);
+            const title = encodeURIComponent(document.querySelector('.post-title')?.textContent || 'SUBBYBLOG');
+
+            const shareUrls = {
+                twitter: `https://twitter.com/intent/tweet?url=${url}&text=${title}`,
+                facebook: `https://www.facebook.com/sharer/sharer.php?u=${url}`,
+                linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${url}`,
+                email: `mailto:?subject=${title}&body=Check out this article: ${url}`
+            };
+
+            if (shareUrls[platform]) {
+                window.open(shareUrls[platform], '_blank', 'width=600,height=500');
+            }
+        }
+
+        // ============================================
+        // FOOTER FORM
+        // ============================================
+        function handleFooterForm(event) {
+            event.preventDefault();
+            const email = document.getElementById('footer-email').value.trim();
+            const message = document.getElementById('footer-message').value.trim();
+
+            if (!email || !message) {
+                document.getElementById('footer-error').classList.add('show');
+                document.getElementById('footer-success').classList.remove('show');
+                return false;
+            }
+
+            document.getElementById('footer-error').classList.remove('show');
+            document.getElementById('footer-success').classList.add('show');
+
+            document.getElementById('footer-email').value = '';
+            document.getElementById('footer-message').value = '';
+
+            setTimeout(() => {
+                document.getElementById('footer-success').classList.remove('show');
+            }, 5000);
+
+            return false;
+        }
+
+        // ============================================
+        // NAVIGATION
+        // ============================================
+        function showHome() {
+            document.querySelectorAll('.hide').forEach(el => el.classList.add('hide'));
+            document.getElementById('home-page').classList.remove('hide');
+
+            document.querySelectorAll('.nav a').forEach(a => a.classList.remove('active'));
+            document.getElementById('nav-home')?.classList.add('active');
+
+            document.getElementById('breadcrumb-current').textContent = '';
+            document.getElementById('breadcrumbs').style.display = 'block';
+
+            renderPosts(allPosts, currentPage);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function showAbout() {
+            document.querySelectorAll('.hide').forEach(el => el.classList.add('hide'));
+            document.getElementById('about-page').classList.remove('hide');
+
+            document.querySelectorAll('.nav a').forEach(a => a.classList.remove('active'));
+            document.getElementById('nav-about')?.classList.add('active');
+
+            document.getElementById('breadcrumb-current').textContent = ' / About';
+            document.getElementById('breadcrumbs').style.display = 'block';
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function showServices() {
+            document.querySelectorAll('.hide').forEach(el => el.classList.add('hide'));
+            document.getElementById('services-page').classList.remove('hide');
+
+            document.querySelectorAll('.nav a').forEach(a => a.classList.remove('active'));
+            document.getElementById('nav-services')?.classList.add('active');
+
+            document.getElementById('breadcrumb-current').textContent = ' / Services';
+            document.getElementById('breadcrumbs').style.display = 'block';
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function showPost(id) {
+            document.querySelectorAll('.hide').forEach(el => el.classList.add('hide'));
+            document.getElementById(`post-${id}`).classList.remove('hide');
+
+            document.querySelectorAll('.nav a').forEach(a => a.classList.remove('active'));
+
+            const post = allPosts.find(p => p.id === id);
+            if (post) {
+                document.getElementById('breadcrumb-current').textContent = ` / ${post.title}`;
+            }
+            document.getElementById('breadcrumbs').style.display = 'block';
+
+            // Render comments for this post
+            renderComments(id);
+            if (commentCounts[id]) {
+                document.getElementById(`comment-count-${id}`).textContent = `(${commentCounts[id].length})`;
+            }
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function handleLogout() {
+            if (confirm('Are you sure you want to logout?')) {
+                alert('Logging out...');
+                // In production, redirect to logout endpoint
+            }
+        }
+
+        // ============================================
+        // MOBILE MENU
+        // ============================================
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const nav = document.querySelector('.nav');
+
+            if (menuToggle && nav) {
+                menuToggle.addEventListener('click', function() {
+                    nav.classList.toggle('show');
+                    const icon = this.querySelector('i');
+                    if (icon) {
+                        icon.className = nav.classList.contains('show') ? 'fas fa-times' : 'fas fa-bars';
+                    }
+                });
+            }
+
+            // Load More Button
+            const loadMoreBtn = document.getElementById('load-more-btn');
+            if (loadMoreBtn) {
+                loadMoreBtn.addEventListener('click', function() {
+                    const page = parseInt(this.dataset.page) || 1;
+                    const filtered = currentFilter === 'all' ? allPosts : allPosts.filter(p => p.topic ===
+                    currentFilter);
+                    renderPosts(filtered, page);
+                    currentPage = page;
+                });
+            }
+
+            // Initialize
+            renderSlider();
+            renderPosts(allPosts, 1);
+
+            // Auto-hide breadcrumbs on home
+            if (!document.getElementById('home-page').classList.contains('hide')) {
+                document.getElementById('breadcrumb-current').textContent = '';
+            }
+        });
+
+        // Slick slider initialization after DOM load
+        $(document).ready(function() {
+            // Slick slider already initialized in renderSlider
+            // This ensures the slider works even if renderSlider runs before slick is ready
+            setTimeout(() => {
+                if (typeof $ !== 'undefined' && $.fn.slick) {
+                    $('.post-wrapper').slick({
+                        slidesToShow: 3,
+                        slidesToScroll: 1,
+                        autoplay: true,
+                        autoplaySpeed: 3000,
+                        dots: false,
+                        infinite: true,
+                        responsive: [{
+                            breakpoint: 1024,
+                            settings: {
+                                slidesToShow: 2,
+                                slidesToScroll: 1
+                            }
+                        }, {
+                            breakpoint: 600,
+                            settings: {
+                                slidesToShow: 1,
+                                slidesToScroll: 1
+                            }
+                        }]
+                    });
+                }
+            }, 500);
+        });
+    </script>
+</body>
+</html>
